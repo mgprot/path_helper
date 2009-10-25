@@ -45,7 +45,7 @@ foreach ( @ARGV, @standard_path_specs )
 
     if( not opendir( PATH_SPEC, $path_spec ) )
         {
-        printf STDERR "$0 Unable to open directory $path_spec: $!\n"   if $verbose;
+        printf STDERR "$0 Unable to open directory $path_spec: $!\n"                if $verbose;
         next;
         }
 
@@ -65,11 +65,11 @@ foreach my $path_spec ( @path_specs )
     {
     if( not open( PATH_SPEC, "<", $path_spec ) )
         {
-        printf STDERR "$0 Unable to read $path_spec: $!\n"                     if $verbose;
+        printf STDERR "$0 Unable to read $path_spec: $!\n"                          if $verbose;
         next;
         }
 
-    printf STDERR "$0 %s ...\n", $path_spec                                    if $verbose;
+    printf STDERR "$0 %s ...\n", $path_spec                                         if $verbose;
 
     while( my $dir = <PATH_SPEC> )
         {
@@ -80,7 +80,7 @@ foreach my $path_spec ( @path_specs )
 
         if( not -d $dir )
             {
-            printf STDERR "$0    Skipped $dir: directory not found\n"             if $verbose;
+            printf STDERR "$0    Skipped $dir: directory not found\n"               if $verbose;
             next;
             }
 
@@ -90,11 +90,11 @@ foreach my $path_spec ( @path_specs )
             {
             if( $have_seen{$dir}++ )
                 {
-                printf STDERR "$0    Skipped duplicate path: $dir\n"              if $verbose;
+                printf STDERR "$0    Skipped duplicate path: $dir\n"                if $verbose;
                 next;
                 }
 
-            printf STDERR "$0    adding path: $dir\n"      if $verbose;
+            printf STDERR "$0    adding path: $dir\n"                               if $verbose;
             push( @path, $dir );
             }
 
@@ -106,7 +106,7 @@ foreach my $path_spec ( @path_specs )
 
             if( not -d $dir )
                 {
-                printf STDERR "$0    Skipped $dir: man directory not found\n"     if $verbose and $path_spec =~ /manpath/ and not $suffix;
+                printf STDERR "$0    Skipped $dir: man directory not found\n"       if $verbose and $path_spec =~ /manpath/ and not $suffix;
                 next;
                 }
 
@@ -115,11 +115,11 @@ foreach my $path_spec ( @path_specs )
             # $have_seen{$dir} will be set
             if( $have_seen{$dir}++ )
                 {
-                printf STDERR "$0    Skipped duplicate man path: $dir\n"          if $verbose and $path_spec =~ /manpath/ and not $suffix;
+                printf STDERR "$0    Skipped duplicate man path: $dir\n"            if $verbose and $path_spec =~ /manpath/ and not $suffix;
                 next;
                 }
 
-            printf STDERR "$0    adding man path: $dir\n"      if $verbose;
+            printf STDERR "$0    adding man path: $dir\n"                           if $verbose;
             push( @manpath, $dir );
             }
         }
