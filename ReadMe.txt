@@ -35,4 +35,4 @@ Copyright
 Permission is granted to use, redistribute and modify this script in any way you like.
 The inclusion of the original copyright and authorship details would be appreciated.
 
-(C) Stephen Riehm, 2009-10-25
+(C) 2009-10-25, Stephen Riehm
